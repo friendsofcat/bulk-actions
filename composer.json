@@ -1,7 +1,7 @@
 {
     "name": "friendsofcat/bulk-actions",
     "description": "Bulk action support for Laravel applications.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "readme": "README.md",
     "license": "MIT",
