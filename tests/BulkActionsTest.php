@@ -2,17 +2,16 @@
 
 namespace FriendsOfCat\BulkActions\Tests;
 
-use FriendsOfCat\BulkActions\BulkActionsServiceProvider;
 use FriendsOfCat\BulkActions\Dispatcher;
 use FriendsOfCat\BulkActions\Tests\Stubs\TestAction;
 use FriendsOfCat\BulkActions\Tests\Stubs\TestActionNoExecuteMethod;
 use FriendsOfCat\BulkActions\Tests\Stubs\User;
+use FriendsOfCat\BulkActions\Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Queue;
-use Orchestra\Testbench\TestCase;
 use RuntimeException;
 
 class BulkActionsTest extends TestCase
@@ -69,13 +68,6 @@ class BulkActionsTest extends TestCase
         $this->dispatcher->dispatch(TestActionNoExecuteMethod::class, $models);
 
         Queue::assertNothingPushed();
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            BulkActionsServiceProvider::class,
-        ];
     }
 
     protected function createUser(): User
